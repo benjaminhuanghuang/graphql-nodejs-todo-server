@@ -1,19 +1,32 @@
-const express = require("express");
-const graphqlHTTP = require("express-graphql");
-
-const app = express();
-
-
 /*
-  Causes error {"errors":[{"message":"GraphQL middleware options must contain a schema."}]}
+  Reference
+    Running an Express GraphQL Server
+    http://graphql.org/graphql-js/running-an-express-graphql-server/
 */
-// Resister GraphQL as a Express middleware
-app.use('/graphql', graphqlHTTP({
-  schema: userSchema,
-  graphiql: true
-}));
 
-// Up and Running at Port 4000
-app.listen(4000, () => {
-  console.log('Express is running at port 4000');
-});
+var express = require('express');
+var graphqlHTTP = require('express-graphql');
+var { buildSchema } = require('graphql');
+
+// Construct a schema, using GraphQL schema language
+var schema = buildSchema(`
+  type Query {
+    hello: String
+  }
+`);
+
+// The root provides a resolver function for each API endpoint
+var root = {
+  hello: () => {
+    return 'Hello world!';
+  },
+};
+
+var app = express();
+app.use('/graphql', graphqlHTTP({
+  schema: schema,
+  rootValue: root,
+  graphiql: true,
+}));
+app.listen(4000);
+console.log('Running a GraphQL API server at localhost:4000/graphql');

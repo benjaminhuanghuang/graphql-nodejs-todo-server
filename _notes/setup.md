@@ -22,6 +22,6 @@ For graphQL
     }));
 ```
 - schema: The GraphQL schema which should be attached to the specific endpoint
-- rootValue: The root resolver object
+- rootValue: The root provides a resolver function for each API endpoint
 - graphiql: To enable the GraphiQL tool when accessing the endpoint in the browser.
 

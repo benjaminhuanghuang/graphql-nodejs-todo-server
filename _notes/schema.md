@@ -87,6 +87,9 @@ const schema = makeExecutableSchema({
   resolvers,
 });
 ```
+## Root Query
+Ref: https://www.udemy.com/graphql-with-react-course/
+
 
 ## Query
 People commonly call everything that hits your GraphQL API server a "query".
