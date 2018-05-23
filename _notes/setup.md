@@ -16,9 +16,14 @@ For graphQL
     const app = express();
     // Resister GraphQL as a Express middleware
     app.use('/graphql', graphqlHTTP({
+        schema: schema,
+        rootValue: root,
         graphiql: true
     }));
 ```
+- schema: The GraphQL schema which should be attached to the specific endpoint
+- rootValue: The root resolver object
+- graphiql: To enable the GraphiQL tool when accessing the endpoint in the browser.
 
 ## Query
 People commonly call everything that hits your GraphQL API server a "query".
