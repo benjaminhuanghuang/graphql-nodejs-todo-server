@@ -1,3 +1,11 @@
+## Install
+```
+    npm i express-graphql graphql -S
+```
+
+
+## Project structure
+
 ## QraphQL Schema / Types
 schemas specify the types for API 
 The application schema defines the GraphQL operations you can send from the frontend
