@@ -12,7 +12,7 @@ const {
 
 const CompanyType = new GraphQLObjectType({
     name: 'Company',
-    fields: () => ({
+    fields: {
         id: { type: GraphQLString },
         name: { type: GraphQLString },
         description: { type: GraphQLString },
@@ -23,12 +23,12 @@ const CompanyType = new GraphQLObjectType({
                     .then(res => res.data)
             }
         }
-    })
+    }
 });
 
 const UserType = new GraphQLObjectType({
     name: 'User',
-    fields: () => ({
+    fields: {
         id: { type: GraphQLString },
         firstName: { type: GraphQLString },
         age: { type: GraphQLInt },
@@ -39,9 +39,11 @@ const UserType = new GraphQLObjectType({
                     .then(res => res.data);
             }
         }
-    })
+    }
 });
 
+// The purpose of root query is to allow graphql to jump and loand on very specific node in 
+// the graph of all of the data.
 //
 const RootQuery = new GraphQLObjectType({
     name: 'RootQueryType',

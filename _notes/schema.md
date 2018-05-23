@@ -1,3 +1,6 @@
+## Reference 
+- https://graphql.org/learn/schema/
+
 ## QraphQL Schema / Types
 Schema tell graph about the type of the data that we're working with and how all the relations between those
 differnt pieces of data
