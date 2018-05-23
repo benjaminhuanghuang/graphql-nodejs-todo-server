@@ -1,14 +1,24 @@
 ## Install
+For Node.js web server
+```
+    npm i express lodash mongoose -S
+```
+For graphQL
 ```
     npm i express-graphql graphql -S
 ```
 
 
-## Project structure
+## Register GraphQL with Express
+```
+    const graphqlHTTP = require("express-graphql");
 
-## QraphQL Schema / Types
-schemas specify the types for API 
-The application schema defines the GraphQL operations you can send from the frontend
+    const app = express();
+    // Resister GraphQL as a Express middleware
+    app.use('/graphql', graphqlHTTP({
+        graphiql: true
+    }));
+```
 
 ## Query
 People commonly call everything that hits your GraphQL API server a "query".
