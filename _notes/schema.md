@@ -62,7 +62,7 @@ var schema = buildSchema(`
 
 ### Working with multiple SDL and resolvers
 
-multiple schema files in ./schemas foler
+Put multiple schema files in ./schemas folder
 person.js
 ```
 type Person {
@@ -70,7 +70,7 @@ type Person {
   age: Int!
 }
 ```
-index.js
+Create schema in index.js
 ```
 import { fileLoader, mergeTypes, mergeResolvers } from 'merge-graphql-schemas';
 import { makeExecutableSchema } from 'graphql-tools';
@@ -84,3 +84,20 @@ const schema = makeExecutableSchema({
   resolvers,
 });
 ```
+
+## Query
+People commonly call everything that hits your GraphQL API server a "query".
+GraphQL query for specific **fields on object** and **result** will come exactly the same shape as request.  GraphQL query always get back what you expect, and the server knows exactly what fields the client is asking for.
+For example
+```
+{
+    users {
+        id
+        name
+    }
+}
+```
+
+
+## Mutation
+GraphQL treats all operations with side-effects similarly, and calls them mutation.

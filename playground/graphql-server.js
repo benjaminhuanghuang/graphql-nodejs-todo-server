@@ -5,7 +5,7 @@ const app = express();
 
 
 /*
-  Cause error {"errors":[{"message":"GraphQL middleware options must contain a schema."}]}
+  Causes error {"errors":[{"message":"GraphQL middleware options must contain a schema."}]}
 */
 // Resister GraphQL as a Express middleware
 app.use('/graphql', graphqlHTTP({
